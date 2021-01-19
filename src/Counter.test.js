@@ -13,3 +13,11 @@ it('increment count by 1 when clicked', () => {
     expect(text).toEqual('Current Count: 1');
 
 })
+
+it('decrement counter by 1 when clicked', () => {
+    const wrapper = shallow(<Counter />)
+    const decBtn = wrapper.find('button.dec')
+    decBtn.simulate('click')
+    const text = wrapper.find('h1').text()
+    expect(text).toEqual('Current Count: -1')
+})
