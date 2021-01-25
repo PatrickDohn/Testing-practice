@@ -21,3 +21,11 @@ it('decrement counter by 1 when clicked', () => {
     const text = wrapper.find('h1').text()
     expect(text).toEqual('Current Count: -1')
 })
+
+it('count should be 0',  () => {
+    const wrapper = shallow(<Counter />)
+    const resetBtn = wrapper.find('button.reset')
+    resetBtn.simulate('click')
+    const text = wrapper.find('h1').text()
+    expect(text).toEqual('Current Count: 0')
+})
