@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import Checkbox from './CheckBox';
 import Link from './Link'
 import Counter from './Counter'
+import AddUser from './AddUser';
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
       <Checkbox />
       <h2>Hey</h2>
       <Counter />
+      <AddUser />
     </div>
   );
 }

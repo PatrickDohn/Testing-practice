@@ -9,7 +9,7 @@ export default class Counter extends React.Component {
       };
     }
 
-    // change code below this line
+
 
     increment() {
       this.setState({
@@ -29,7 +29,6 @@ export default class Counter extends React.Component {
       });
     };
 
-    // change code above this line
     render() {
       return (
 
