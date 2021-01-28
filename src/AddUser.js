@@ -6,26 +6,28 @@ function AddUser() {
 
     function handleChange(event) {
       setName(event.target.value);
+
     }
 
     function handleAdd() {
       const newList = list.concat({ name });
-
       setList(newList);
     }
 
     return (
       <div>
         <div>
-          <input type="text" placeholder='Name' value={name} onChange={handleChange} />
-          <button type="button" onClick={handleAdd}>
-            Add
-          </button>
+          <form>
+            <input id="input" type="text" placeholder='Name' value={name} onChange={handleChange} />
+            <button id="addUserBtn" type="button" onClick={handleAdd}>
+              Add
+            </button>
+          </form>
         </div>
 
-        <ul key={list.item}>
-          {list.map((item) => (
-            <p>{item.name}</p>
+        <ul>
+          {list.map((item, index) => (
+            <p key={index}>{item.name}</p>
           ))}
         </ul>
       </div>
