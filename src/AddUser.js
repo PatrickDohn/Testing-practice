@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 
 function AddUser() {
-    const [list, setList] = React.useState([]);
-    const [name, setName] = React.useState('');
+    const [list, setList] = useState([]);
+    const [name, setName] = useState('');
 
     function handleChange(event) {
       setName(event.target.value);
-
     }
 
     function handleAdd() {
@@ -17,19 +16,18 @@ function AddUser() {
     return (
       <div>
         <div>
-          <form>
-            <input id="input" type="text" placeholder='Name' value={name} onChange={handleChange} />
-            <button id="addUserBtn" type="button" onClick={handleAdd}>
-              Add
-            </button>
-          </form>
-        </div>
+          <label>Enter Name</label>
+          <input id="input" type="text" placeholder='Name' value={name} onChange={handleChange} />
+          <button id="addUserBtn" type="button" onClick={handleAdd}>
+            Add
+          </button>
+      </div>
 
-        <ul>
-          {list.map((item, index) => (
-            <p key={index}>{item.name}</p>
-          ))}
-        </ul>
+      <ul>
+        {list.map((item, index) => (
+          <p key={index}>{item.name}</p>
+        ))}
+      </ul>
       </div>
     )
 }
