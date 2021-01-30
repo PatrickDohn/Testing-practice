@@ -1,23 +1,23 @@
 import React from 'react';
 import AddUser from './AddUser';
-import ReactDOM from 'react-dom'
-import Enzyme, {shallow} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { fireEvent, render } from '@testing-library/react'
 
 
 
-Enzyme.configure({adapter: new Adapter()});
+test('renders without crashing', () => {
+    const { getByText } = render(<AddUser />)
 
-it('renders without crashing', () => {
-    const p = document.createElement('p')
-    ReactDOM.render(<button></button>, p)
+    expect(getByText('Enter Name')).not.toBeNull()
+    expect(getByText('Add')).not.toBeNull()
+
 })
 
 
-it('should add a user name', () => {
-    const wrapper = shallow(<AddUser />)
-    const addBtn = wrapper.find('button')
-    addBtn.simulate('click')
-    const text = wrapper.find('input').text('Patrick')
-    expect(text).toBe('');
+test('prompts user for a name to be entered', () => {
+    const { getByText, getByPlaceholderText } = render(<AddUser />)
+
+    const input = getByPlaceholderText('Name')
+
+    fireEvent.change(input, { target: { value: 'RTL Presentation Slides' } })
+    fireEvent.click(getByText('Add'))
 })
